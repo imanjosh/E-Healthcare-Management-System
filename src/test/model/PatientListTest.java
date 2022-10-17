@@ -27,14 +27,14 @@ public class PatientListTest {
     }
 
     @Test
-    void testPatientListWithOneItem() {
+    void testPatientListWithOnePatient() {
         testPatientList.addPatient(patient1);
         assertTrue(testPatientList.getPatients().contains(patient1));
         assertEquals(1, testPatientList.getNumOfBeds());
     }
 
     @Test
-    void testPatientListWithManyItem() {
+    void testPatientListWithManyPatients() {
         testPatientList.addPatient(patient1);
         testPatientList.addPatient(patient2);
         testPatientList.addPatient(patient3);
@@ -42,6 +42,18 @@ public class PatientListTest {
         assertTrue(testPatientList.getPatients().contains(patient2));
         assertTrue(testPatientList.getPatients().contains(patient3));
         assertEquals(3, testPatientList.getNumOfBeds());
+    }
+
+    @Test
+    void testPatientListWithMoreThan500Patients() {
+        for (int i = 0; i < 500; i++) {
+            testPatientList.addPatient(patient1);
+        }
+        assertEquals(500, testPatientList.getNumOfBeds());
+
+        testPatientList.addPatient(patient2);
+        testPatientList.addPatient(patient3);
+        assertEquals(500, testPatientList.getNumOfBeds());
     }
 
 }
