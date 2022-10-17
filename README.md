@@ -6,8 +6,8 @@ record medical information such as bed occupation ratio, diagnoses, medicines, e
 
 When I thought of this project, I knew I had to do this. It is very applicable to the real world and is also very 
 helpful in digitalizing important medical information and eliminating the risk of errors and losing information. 
-This project is also very much aligned with my major *(Computer Science and Biology)*. I am glad I have to opportunity
-to apply computer science in the field of biology.
+This project is also very much aligned with my major *(Computer Science and Biology)*. I am glad I have this amazing
+opportunity to apply computer science in the field of biology.
 
 ## User Stories:
 
