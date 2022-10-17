@@ -66,13 +66,13 @@ public class HealthcareApp {
     // MODIFIES: this
     // EFFECTS: adds a new patient with name, age, diagnosis, & prescription to the list
     private void addPatientUi() {
-        System.out.print("Enter the name of the patient:");
+        System.out.print("Enter the name of the patient: ");
         String name = input.next();
-        System.out.print("Enter the age of the patient:");
+        System.out.print("Enter the age of the patient: ");
         int age = input.nextInt();
-        System.out.print("Provide the diagnosis for the associated patient:");
+        System.out.print("Provide the diagnosis for the associated patient: ");
         String diagnosis = input.next();
-        System.out.print("Provide the prescription for the associated patient:");
+        System.out.print("Provide the prescription for the associated patient: ");
         String prescription = input.next();
         Patient patient = new Patient(name, age);
         patient.addDiagnosis(diagnosis);
@@ -80,8 +80,7 @@ public class HealthcareApp {
         patientList.addPatient(patient);
     }
 
-    // MODIFIES: this
-    // EFFECTS: prints all patient's name, age, diagnosis, & prescription in the list;
+    // EFFECTS: prints all patients' name, age, diagnosis, & prescription in the list;
     //          prints "No patients added yet. Press a to start." when list is empty
     private void getPatientsUi() {
         if (patientList.getPatients().isEmpty()) {
@@ -94,7 +93,6 @@ public class HealthcareApp {
         }
     }
 
-    // MODIFIES: this
     // EFFECTS: prints the number of beds taken out of 500
     private void getNumOfBedsUi() {
         System.out.print("Number of beds taken " + patientList.getNumOfBeds() + "/500");

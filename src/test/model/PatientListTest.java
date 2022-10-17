@@ -21,7 +21,7 @@ public class PatientListTest {
     }
 
     @Test
-    void testEmptyPatientList() {
+    void testConstructor() {
         assertTrue(testPatientList.getPatients().isEmpty());
         assertEquals(0, testPatientList.getNumOfBeds());
     }

@@ -6,7 +6,6 @@ import java.util.ArrayList;
 public class PatientList {
 
     private ArrayList<Patient> patients;
-    private Patient patient;
     private int numOfBeds;
     private static final int maxBeds = 500;
 
