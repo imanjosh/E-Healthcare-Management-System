@@ -14,7 +14,7 @@ public class PatientListTest {
 
     @BeforeEach
     void runBefore() {
-        testPatientList = new PatientList();
+        testPatientList = new PatientList("List of saved Patients");
         patient1 = new Patient("Kia Abdullah", 19);
         patient2 = new Patient("Gurpal Chahal", 44);
         patient3 = new Patient("Amitoj Singh", 18);

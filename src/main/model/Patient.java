@@ -1,7 +1,10 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 // Represents a patient with a name, age, diagnosis (if available) & prescription (if available)
-public class Patient {
+public class Patient implements Writable {
 
     private String name;
     private int age;
@@ -55,5 +58,20 @@ public class Patient {
 
     public String getPrescription() {
         return prescription;
+    }
+
+    // EFFECTS: returns string representation of the patient
+    public String toString() {
+        return name + ": " + age;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("age", age);
+        json.put("diagnosis", diagnosis);
+        json.put("prescription", prescription);
+        return json;
     }
 }

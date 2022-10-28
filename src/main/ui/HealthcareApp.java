@@ -4,16 +4,29 @@ package ui;
 import model.Patient;
 import model.PatientList;
 
+import persistence.JsonReader;
+import persistence.JsonWriter;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 // E-Healthcare Management System Application
 // Code used from TellerApp.java to help create this HealthcareApp
 public class HealthcareApp {
+    private static final String JSON_STORE = "./data/patientList.json";
     private Scanner input;
     private PatientList patientList;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
+
 
     // EFFECTS: runs the E-Healthcare Management System Application
-    public HealthcareApp() {
+    public HealthcareApp() throws FileNotFoundException {
+        input = new Scanner(System.in);
+        patientList = new PatientList("List of saved Patients");
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         runHealthcareApp();
     }
 
@@ -45,6 +58,8 @@ public class HealthcareApp {
         System.out.println("\ta -> Add Patient");
         System.out.println("\tv -> View list of Patients");
         System.out.println("\t# -> View number of beds taken");
+        System.out.println("\ts -> Save list of patients to file");
+        System.out.println("\tl -> Load list of patients from file");
         System.out.println("\tq -> Quit");
     }
 
@@ -57,6 +72,10 @@ public class HealthcareApp {
             getPatientsUi();
         } else if (command.equals("#")) {
             getNumOfBedsUi();
+        } else if (command.equals("s")) {
+            savePatientSavedList();
+        } else if (command.equals("l")) {
+            loadPatientSavedList();
         } else {
             System.out.println("Selection not valid...");
         }
@@ -84,7 +103,7 @@ public class HealthcareApp {
     //          prints "No patients added yet. Press a to start." when list is empty
     private void getPatientsUi() {
         if (patientList.getPatients().isEmpty()) {
-            System.out.print("No patients added yet. Press a to start.");
+            System.out.print("No patients added yet. Press a to add or l to load previous patients.");
         } else {
             for (Patient patient : patientList.getPatients()) {
                 System.out.print("Name: " + patient.getName() + " Age: " + patient.getAge() + " Diagnosis: ");
@@ -101,9 +120,32 @@ public class HealthcareApp {
     // MODIFIES: this
     // EFFECTS: initializes patientList & input
     private void init() {
-        patientList = new PatientList();
+        patientList = new PatientList("List of saved Patients");
         input = new Scanner(System.in);
         input.useDelimiter("\n");
+    }
+
+    // EFFECTS: saves the patientList to file
+    private void savePatientSavedList() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(patientList);
+            jsonWriter.close();
+            System.out.println("Saved " + patientList.getName() + " to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads patientList from file
+    private void loadPatientSavedList() {
+        try {
+            patientList = jsonReader.read();
+            System.out.println("Loaded " + patientList.getName() + " from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
     }
 
 }

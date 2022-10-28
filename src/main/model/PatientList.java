@@ -1,20 +1,34 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-// Represents a list of patients with a name, age, diagnosis (if available) & prescription (if available)
-public class PatientList {
+// Represents a list with a name of itself, and contains patients with a name, age, diagnosis (if available)
+// & prescription (if available)
+public class PatientList implements Writable {
 
-    private ArrayList<Patient> patients;
+    private List<Patient> patients;
+    private String name;
     private int numOfBeds;
     private static final int maxBeds = 500;
 
     /*
-     * EFFECTS: creates a new empty list of Patient and sets number of beds taken to 0
+     * EFFECTS: constructs PatientList with a name, empty list of patients, and # of beds set to 0
      */
-    public PatientList() {
+    public PatientList(String name) {
+        this.name = name;
         patients = new ArrayList<>();
         numOfBeds = 0;
+    }
+
+
+    public String getName() {
+        return name;
     }
 
     /*
@@ -30,11 +44,37 @@ public class PatientList {
         }
     }
 
-    public ArrayList<Patient> getPatients() {
-        return patients;
+    // EFFECTS: returns an unmodifiable list of patients in this PatientList
+    public List<Patient> getPatients() {
+        return Collections.unmodifiableList(patients);
+    }
+
+    // EFFECTS: returns number of patients in this list
+    public int numPatients() {
+        return patients.size();
     }
 
     public int getNumOfBeds() {
         return numOfBeds;
     }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("Patients", patientsToJson());
+        return json;
+    }
+
+    // EFFECTS: returns things in this PatientList as a JSON array
+    private JSONArray patientsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Patient t : patients) {
+            jsonArray.put(t.toJson());
+        }
+
+        return jsonArray;
+    }
+
 }

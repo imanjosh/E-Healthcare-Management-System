@@ -15,3 +15,5 @@ opportunity to apply computer science in the field of biology.
 - As a user, I want to be able to view the list of patients on the list
 - As a user, I want to be able to add medical information such as diagnoses and medicines to the associated patient
 - As a user, I want to be able to view and change the bed occupation ratio
+- As a user, I want to be able to save my list of patients to file
+- As a user, I want to be able to load my list of patients from file
