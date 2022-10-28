@@ -34,4 +34,9 @@ public class PatientTest {
         assertEquals("Nirmatrelvir and Ritonavir", testPatient.getPrescription());
     }
 
+    @Test
+    void testToString() {
+        assertEquals("Imanjosh Chahal: 19", testPatient.toString());
+    }
+
 }
