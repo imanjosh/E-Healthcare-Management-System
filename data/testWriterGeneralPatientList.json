@@ -1,0 +1,17 @@
+{
+    "name": "My List of saved Patients",
+    "Patients": [
+        {
+            "prescription": "None",
+            "name": "Iman",
+            "diagnosis": "None",
+            "age": 19
+        },
+        {
+            "prescription": "Chemotherapy",
+            "name": "Gogo",
+            "diagnosis": "Cancer",
+            "age": 10
+        }
+    ]
+}
