@@ -7,6 +7,7 @@ import model.PatientList;
 import java.io.*;
 
 // Represents a writer that writes JSON representation of PatientList to file
+// Code from JsonSerializationDemo was used to help create this class
 public class JsonWriter {
     private static final int TAB = 4;
     private PrintWriter writer;

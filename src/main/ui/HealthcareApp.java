@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 // E-Healthcare Management System Application
-// Code used from TellerApp.java to help create this HealthcareApp
+// Code from TellerApp.java was used to help create this HealthcareApp
 public class HealthcareApp {
     private static final String JSON_STORE = "./data/patientList.json";
     private Scanner input;
