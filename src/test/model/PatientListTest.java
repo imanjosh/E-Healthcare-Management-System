@@ -56,4 +56,16 @@ public class PatientListTest {
         assertEquals(500, testPatientList.getNumOfBeds());
     }
 
+    @Test
+    void testRemovePatient() {
+        testPatientList.addPatient(patient1);
+        testPatientList.addPatient(patient2);
+        testPatientList.addPatient(patient3);
+        testPatientList.removePatient(0);
+        assertEquals(2, testPatientList.getNumOfBeds());
+        assertFalse(testPatientList.getPatients().contains(patient1));
+        assertTrue(testPatientList.getPatients().contains(patient2));
+        assertTrue(testPatientList.getPatients().contains(patient3));
+    }
+
 }

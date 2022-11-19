@@ -17,3 +17,11 @@ opportunity to apply computer science in the field of biology.
 - As a user, I want to be able to view and change the bed occupation ratio
 - As a user, I want to be able to save my list of patients to file
 - As a user, I want to be able to load my list of patients from file
+
+# Instructions for Grader
+
+- You can generate the first required event related to adding Xs to a Y by clicking the button labelled "Add Patient"
+- You can generate the second required event related to adding Xs to a Y by clicking the button labelled "Remove Patient"
+- You can locate my visual component by minimizing the window and looking at the icon in the docks bar (MacOS)
+- You can save the state of my application by clicking the button labelled "Save Patients"
+- You can reload the state of my application by clicking the button labelled "Load Patients"

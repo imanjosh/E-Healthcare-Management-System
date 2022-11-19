@@ -58,6 +58,12 @@ public class PatientList implements Writable {
         return numOfBeds;
     }
 
+    // EFFECTS: removes patient in the list at the given index and decreases numOfBeds by 1
+    public void removePatient(int index) {
+        patients.remove(index);
+        numOfBeds = numOfBeds - 1;
+    }
+
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
