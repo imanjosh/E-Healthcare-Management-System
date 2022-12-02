@@ -1,5 +1,6 @@
 package ui;
 
+import model.EventLog;
 import model.Patient;
 import model.PatientList;
 import persistence.JsonReader;
@@ -13,6 +14,8 @@ import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -79,9 +82,40 @@ public class GUI extends JFrame implements ListSelectionListener {
         add(listScrollPane, BorderLayout.CENTER);
         add(buttonPane, BorderLayout.PAGE_END);
 
+        printLog();
+
         //Display the window.
         pack();
         setVisible(true);
+    }
+
+    private void printLog() {
+        this.addWindowListener(new WindowListener() {
+            @Override
+            public void windowOpened(WindowEvent e) {}
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+                for (model.Event event : EventLog.getInstance()) {
+                    System.out.println(event.toString() + "\n");
+                }
+            }
+
+            @Override
+            public void windowClosed(WindowEvent e) {}
+
+            @Override
+            public void windowIconified(WindowEvent e) {}
+
+            @Override
+            public void windowDeiconified(WindowEvent e) {}
+
+            @Override
+            public void windowActivated(WindowEvent e) {}
+
+            @Override
+            public void windowDeactivated(WindowEvent e) {}
+        });
     }
 
     // MODIFIES: this

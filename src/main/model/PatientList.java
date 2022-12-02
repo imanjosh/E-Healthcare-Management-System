@@ -42,6 +42,7 @@ public class PatientList implements Writable {
             patients.add(patient);
             numOfBeds = numOfBeds + 1;
         }
+        EventLog.getInstance().logEvent(new Event("Patient Added."));
     }
 
     // EFFECTS: returns an unmodifiable list of patients in this PatientList
@@ -62,6 +63,7 @@ public class PatientList implements Writable {
     public void removePatient(int index) {
         patients.remove(index);
         numOfBeds = numOfBeds - 1;
+        EventLog.getInstance().logEvent(new Event("Patient Removed."));
     }
 
     @Override
