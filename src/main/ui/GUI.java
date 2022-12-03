@@ -187,7 +187,7 @@ public class GUI extends JFrame implements ListSelectionListener {
     }
 
     // ActionListener associated to removing a patient
-    class RemoveListener implements ActionListener {
+    private class RemoveListener implements ActionListener {
 
         // MODIFIES: this
         // EFFECTS: removes the selected patient from the list
