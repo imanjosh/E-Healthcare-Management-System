@@ -25,3 +25,25 @@ opportunity to apply computer science in the field of biology.
 - You can locate my visual component by minimizing the window and looking at the icon in the docks bar (MacOS)
 - You can save the state of my application by clicking the button labelled "Save Patients"
 - You can reload the state of my application by clicking the button labelled "Load Patients"
+
+# Phase 4: Task 2
+Thu Dec 01 23:35:27 PST 2022
+Patient Added.
+
+Thu Dec 01 23:36:37 PST 2022
+Patient Added.
+
+Thu Dec 01 23:36:42 PST 2022
+Patient Removed.
+
+
+Process finished with exit code 0
+
+# Phase 4: Task 3
+Reflecting on the UML class diagram for this application,
+there are a couple refactorings I would have done to improve the design if I had more time to work on the project. They
+are as follows:
+- Increase cohesion by dividing my large GUI class into several other classes while still maintaining low coupling
+by not overdoing it (for example: adding another class whose only responsibilty is doing ActionListener events)
+- Exception handling
+- Use singleton design so that there's only ever one instance of PatientList
